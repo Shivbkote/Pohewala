@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POHEWALA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --y: #f7c948;
+            --w: #fff;
+            --b: #0f1012;
+            --g: #1a1b1f;
+            --m: #d7d7d7;
+            --s: 0 20px 60px rgba(0, 0, 0, .35)
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            background: radial-gradient(circle at top, #26272d 0, #111214 40%, #090a0b 100%);
+            color: var(--w);
+            scroll-behavior: smooth
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            width: min(1200px, 92%);
+            margin: auto
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(9, 10, 11, .72);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 14px 0
+        }
+
+     
+
+        .logo-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+           
+            color: #000000;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 30px rgba(249, 193, 38, 0.35);
+            flex: 0 0 auto
+        }
+
+        .logo-text {
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 12px;
+            color: var(--y);
+            font-weight: 600;
+            letter-spacing: 2px
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .menu a {
+            color: #f4f4f4;
+            font-size: 14px;
+            opacity: .9;
+            transition: .25s
+        }
+
+        .menu a:hover {
+            color: var(--y)
+        }
+
+        .cta {
+            padding: 13px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--y), #fff0a6);
+            color: #111;
+            font-weight: 800;
+            box-shadow: 0 14px 30px rgba(247, 201, 72, .28);
+            white-space: nowrap
+        }
+
+        .burger {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 0;
+            border-radius: 16px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .06));
+            cursor: pointer;
+            position: relative;
+            flex: 0 0 auto;
+            transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+            backdrop-filter: blur(10px)
+        }
+
+        .burger span,
+        .burger:before,
+        .burger:after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 99px;
+            transition: .45s cubic-bezier(.22, 1, .36, 1), opacity .25s ease
+        }
+
+        .burger span {
+            top: 24px
+        }
+
+        .burger:before {
+            top: 16px
+        }
+
+        .burger:after {
+            top: 32px
+        }
+
+        .burger:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 36px rgba(247, 201, 72, .16)
+        }
+
+        .burger.active {
+            background: linear-gradient(145deg, rgba(247, 201, 72, .24), rgba(255, 255, 255, .08));
+            box-shadow: 0 14px 36px rgba(247, 201, 72, .18);
+            transform: rotate(2deg)
+        }
+
+        .burger.active:before {
+            transform: translateY(8px) rotate(45deg);
+            top: 16px
+        }
+
+        .burger.active span {
+            opacity: 0;
+            transform: scaleX(0)
+        }
+
+        .burger.active:after {
+            transform: translateY(-8px) rotate(-45deg);
+            top: 32px
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 76px 16px auto 16px;
+            background: rgba(15, 16, 18, .62);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 24px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+            padding: 16px;
+            transform: translateY(-12px) scale(.97);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .28s ease, transform .28s ease
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto
+        }
+
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 12px;
+            border-radius: 14px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            opacity: .95;
+            transition: transform .2s ease, background .2s ease, color .2s ease
+        }
+
+        .mobile-menu a:after {
+            content: "›";
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: .2s ease
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(247, 201, 72, .12);
+            color: var(--y);
+            transform: translateX(3px)
+        }
+
+        .mobile-menu a:hover:after {
+            opacity: 1;
+            transform: translateX(0)
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: 0
+        }
+
+        .mobile-menu .cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px
+        }
+
+        .hero {
+            padding: 34px 0 18px
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 34px;
+            background: linear-gradient(135deg, #16181d, #0d0e10);
+            box-shadow: var(--s);
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .slides {
+            display: flex;
+            transition: transform .9s cubic-bezier(.22, 1, .36, 1)
+        }
+
+        .slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            align-items: center;
+            gap: 20px;
+            padding: 70px 60px;
+            min-height: 460px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .slide:before {
+            content: "";
+            position: absolute;
+            inset: auto -120px -120px auto;
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, rgba(247, 201, 72, .22), transparent 68%)
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(247, 201, 72, .12);
+            border: 1px solid rgba(247, 201, 72, .28);
+            color: #ffdd85;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 18px
+        }
+
+        h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1.02;
+            margin: 0 0 18px;
+            max-width: 10ch
+        }
+
+        .sub {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--m);
+            max-width: 640px;
+            margin: 0 0 30px
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 24px;
+            border-radius: 16px;
+            background: #fff;
+            color: #111;
+            font-weight: 800;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, .25)
+        }
+
+        .yellow-half {
+            background: linear-gradient(90deg, var(--y) 0 50%, #fff 50% 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .copy {
+            position: relative;
+            z-index: 2
+        }
+
+        .visual {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 420px
+        }
+
+        .blob {
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(247, 201, 72, .95), rgba(247, 201, 72, .2) 42%, rgba(247, 201, 72, .04) 68%, transparent 72%)
+        }
+
+        .food-outline {
+            position: absolute;
+            inset: 18% 8% 8% 8%;
+            border: 1px dashed rgba(255, 255, 255, .16);
+            border-radius: 34px;
+            animation: spin 20s linear infinite
+        }
+
+        .float-card {
+            position: absolute;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .14);
+            backdrop-filter: blur(10px);
+            padding: 14px 18px;
+            border-radius: 18px;
+            box-shadow: var(--s);
+            animation: float 5s ease-in-out infinite;
+            z-index: 2
+        }
+
+        .float-card.small {
+            inset: 10% auto auto 6%;
+            animation-delay: 1s
+        }
+
+        .visual .float-card:first-of-type {
+            inset: auto 10% 12% auto
+        }
+
+        .food {
+            position: relative;
+            width: min(420px, 80%);
+            z-index: 1;
+            filter: drop-shadow(0 28px 30px rgba(0, 0, 0, .35));
+            animation: levitate 5s ease-in-out infinite
+        }
+
+        .food img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            transform: rotate(-6deg)
+        }
+
+        .spark {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--y);
+            box-shadow: 0 0 0 8px rgba(247, 201, 72, .16);
+            animation: pop 1.8s ease-in-out infinite;
+            z-index: 0
+        }
+
+        .s1 {
+            top: 14%;
+            left: 12%
+        }
+
+        .s2 {
+            bottom: 18%;
+            left: 18%;
+            animation-delay: .4s
+        }
+
+        .s3 {
+            top: 18%;
+            right: 18%;
+            animation-delay: .8s
+        }
+
+        .s4 {
+            bottom: 28%;
+            right: 10%;
+            animation-delay: 1.2s
+        }
+
+        .nav-arrows {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+            align-items: center
+        }
+
+        .nav-arrows button {
+            width: 46px;
+            height: 46px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .1);
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            line-height: 1
+        }
+
+        .section {
+            padding: 26px 0 70px
+        }
+
+        .famous {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: center;
+            background: linear-gradient(135deg, #15161a, #0f1012);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--s)
+        }
+
+        .famous-copy {
+            padding: 42px
+        }
+
+        .kicker {
+            color: var(--y);
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 12px;
+            text-transform: uppercase
+        }
+
+        .famous h2 {
+            margin: 12px 0 14px;
+            font-size: clamp(30px, 4vw, 52px);
+            line-height: 1.05
+        }
+
+        .famous p {
+            color: var(--m);
+            line-height: 1.8;
+            margin: 0 0 24px;
+            max-width: 54ch
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .pill {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(247, 201, 72, .12);
+            border: 1px solid rgba(247, 201, 72, .18)
+        }
+
+        .famous-visual {
+            position: relative;
+            min-height: 460px;
+            padding: 24px;
+            background: radial-gradient(circle at 30% 20%, rgba(247, 201, 72, .18), transparent 42%), linear-gradient(135deg, #111216, #08090a);
+            display: grid;
+            place-items: center
+        }
+
+        .plate {
+            width: min(420px, 86%);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 46%, #fff7d5 0 18%, #f4c63e 19% 31%, #1a1a1a 32% 35%, #000 36% 100%);
+            box-shadow: inset 0 0 0 18px rgba(255, 255, 255, .06), 0 24px 60px rgba(0, 0, 0, .45);
+            position: relative;
+            animation: levitate 6s ease-in-out infinite
+        }
+
+        .plate:before,
+        .plate:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #efb83d, #ffd86c)
+        }
+
+        .plate:before {
+            width: 110px;
+            height: 110px;
+            left: 18%;
+            top: 32%;
+            box-shadow: 110px 18px 0 8px #d38a18, 210px 10px 0 0 #efb83d, 52px 96px 0 0 #ffd96e
+        }
+
+        .plate:after {
+            width: 74px;
+            height: 74px;
+            right: 20%;
+            top: 25%;
+            box-shadow: -86px 60px 0 -6px #ffefad, -170px 92px 0 -10px #c57d15
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+        @keyframes levitate {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-1deg)
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(1deg)
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes pop {
+
+            0%,
+            100% {
+                transform: scale(.85);
+                opacity: .55
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1
+            }
+        }
+
+        @media (max-width: 980px) {
+            .burger {
+                display: block
+            }
+
+            .menu,
+            .cta {
+                display: none
+            }
+
+            .slide,
+            .famous {
+                grid-template-columns: 1fr
+            }
+
+            .slide {
+                padding: 22px 18px 30px;
+                min-height: auto
+            }
+
+            .copy {
+                order: 1
+            }
+
+            .visual {
+                order: 0;
+                min-height: 300px;
+                margin-bottom: 10px
+            }
+
+            .slider {
+                border-radius: 26px
+            }
+
+            .sub {
+                font-size: 15px
+            }
+
+            .hero-btn {
+                width: 100%;
+                justify-content: center
+            }
+
+            .nav-inner {
+                padding: 12px 0
+            }
+
+            .logo-mark {
+                width: 40px;
+                height: 40px
+            }
+
+            .logo-text {
+                font-size: 15px
+            }
+
+            .logo-text span {
+                font-size: 10px
+            }
+
+            .famous-copy {
+                padding: 28px
+            }
+
+            .mobile-menu {
+                display: block
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: min(1200px, 94%)
+            }
+
+            .slide {
+                padding: 16px 12px 22px;
+                gap: 10px
+            }
+
+            .hero h1 {
+                font-size: 32px
+            }
+
+            .sub {
+                line-height: 1.65
+            }
+
+            .visual {
+                min-height: 220px
+            }
+
+            .blob {
+                width: 230px;
+                height: 230px
+            }
+
+            .food {
+                width: min(240px, 84%)
+            }
+
+            .food-outline {
+                inset: 12% 2% 2% 2%
+            }
+
+            .float-card {
+                padding: 9px 12px;
+                font-size: 12px
+            }
+
+            .nav-arrows {
+                display: none
+            }
+
+            .nav-arrows button {
+                width: 38px;
+                height: 38px
+            }
+        }
+
+
+
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-mark {
+    width: 60px;/* adjust size here */
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* keeps it properly fitted */
+    border-radius: 50%;
+}
+
+
+.logo-text {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+.logo-text .tagline {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #ccc;
+}
+
+.animated-text span {
+    display: inline-block;
+    animation: colorWave 3s linear infinite;
+}
+
+/* Letter delays for POHA */
+.animated-text span:nth-child(1) { animation-delay: 0s; }
+.animated-text span:nth-child(2) { animation-delay: 0.3s; }
+.animated-text span:nth-child(3) { animation-delay: 0.6s; }
+.animated-text span:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes colorWave {
+    0%   { color: white; }
+    50%  { color: #FFD700; }
+    100% { color: white; }
+}
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="container nav-inner">
+          <a class="logo" href="#home">
+    <div class="logo-mark">
+        <img src="Pohewala-Logo.png" alt="POHEWALA Logo">
+    </div>
+    <div class="logo-text">
+    <span class="animated-text">
+        <span>P</span>
+        <span>O</span>
+        <span>H</span>
+        <span>E</span>
+    </span>WALA
+    <span class="tagline">AUTHENTIC TASTE</span>
+</div>
+</a>
+            <nav class="menu"><a href="#home">Home</a><a href="#about">About Us</a><a href="#menu">Our Menu</a><a
+                    href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#contact">Contact Us</a></nav>
+            <a class="cta" href="#partner">Become a Partner</a>
+            <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+        </div>
+        <div class="container mobile-menu" id="mobileMenu">
+            <a href="#home">Home</a><a href="#about">About Us</a><a href="#menu">Our Menu</a><a
+                href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#contact">Contact Us</a><a class="cta"
+                href="#partner">Become a Partner</a>
+        </div>
+    </header>
+    <main id="home">
+        <section class="hero container">
+            <div class="slider">
+                <div class="slides" id="slides">
+                    <article class="slide">
+                        <div class="copy">
+                            <div class="eyebrow">Fresh • Fast • Flavorful</div>
+                            <h1>Welcome to <span class="yellow-half">POHEWALA</span></h1>
+                            <p class="sub">Try Pohewala’s Kulhad Chai, India’s fastest-growing chai chain. Our clay cups
+                                add a unique, earthy flavor, delivering an authentic Maharashtrian experience in every
+                                sip,</p><a class="hero-btn" href="#menu">Explore Our Menu</a>
+                        </div>
+                        <div class="visual">
+                            <div class="blob"></div>
+                            <div class="food-outline"></div>
+                            <div class="spark s1"></div>
+                            <div class="spark s2"></div>
+                            <div class="spark s3"></div>
+                            <div class="spark s4"></div>
+                            <div class="float-card">Kulhad Chai</div>
+                            <div class="float-card small">Earthy • Warm • Fresh</div>
+                            <div class="food"><img alt="Kulhad chai"
+                                    src="https://images.unsplash.com/photo-1544782321-2dedf8f7e0e8?auto=format&fit=crop&w=900&q=80">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="slide">
+                        <div class="copy">
+                            <div class="eyebrow">Crispy • Spicy • Addictive</div>
+                            <h1>Peri Peri <span class="yellow-half">French Fries</span></h1>
+                            <p class="sub">Try Pohewala’s Kulhad Chai, India’s fastest-growing chai chain. Our clay cups
+                                add a unique, earthy flavor, delivering an authentic Maharashtrian experience in every
+                                sip,</p><a class="hero-btn" href="#menu">Explore Our Menu</a>
+                        </div>
+                        <div class="visual">
+                            <div class="blob"></div>
+                            <div class="food-outline"></div>
+                            <div class="spark s1"></div>
+                            <div class="spark s2"></div>
+                            <div class="spark s3"></div>
+                            <div class="spark s4"></div>
+                            <div class="float-card">Peri Peri Fries</div>
+                            <div class="float-card small">Crunch meets heat</div>
+                            <div class="food"><img alt="French fries"
+                                    src="https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=900&q=80">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="slide">
+                        <div class="copy">
+                            <div class="eyebrow">Mix • Match • Enjoy</div>
+                            <h1>Choose Your <span class="yellow-half">Flavours</span></h1>
+                            <p class="sub">Try Pohewala’s Kulhad Chai, India’s fastest-growing chai chain. Our clay cups
+                                add a unique, earthy flavor, delivering an authentic Maharashtrian experience in every
+                                sip,</p><a class="hero-btn" href="#menu">Explore Our Menu</a>
+                        </div>
+                        <div class="visual">
+                            <div class="blob"></div>
+                            <div class="food-outline"></div>
+                            <div class="spark s1"></div>
+                            <div class="spark s2"></div>
+                            <div class="spark s3"></div>
+                            <div class="spark s4"></div>
+                            <div class="float-card">Flavour Combos</div>
+                            <div class="float-card small">Bold • Bright • Fun</div>
+                            <div class="food"><img alt="Food platter"
+                                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="slide">
+                        <div class="copy">
+                            <div class="eyebrow">Signature Dish</div>
+                            <h1>Most Famous <span class="yellow-half">Poha</span></h1>
+                            <p class="sub">Celebrate Pohewala’s most loved poha with the same premium slider treatment,
+                                featuring an appetizing hero layout, strong branding, and a vibrant food-focused visual.
+                            </p><a class="hero-btn" href="#menu">Explore Our Menu</a>
+                        </div>
+                        <div class="visual">
+                            <div class="blob"></div>
+                            <div class="food-outline"></div>
+                            <div class="spark s1"></div>
+                            <div class="spark s2"></div>
+                            <div class="spark s3"></div>
+                            <div class="spark s4"></div>
+                            <div class="float-card">Most Famous Poha</div>
+                            <div class="float-card small">Fresh • Warm • Iconic</div>
+                            <div class="food"><img alt="Poha"
+                                    src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=900&q=80">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="nav-arrows"><button id="prev" aria-label="Previous">‹</button><button id="next"
+                        aria-label="Next">›</button></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const slides = document.getElementById('slides'); const total = slides.children.length; let index = 0; const go = n => { index = (n + total) % total; slides.style.transform = `translateX(-${index * 100}%)` }; document.getElementById('next').onclick = () => go(index + 1); document.getElementById('prev').onclick = () => go(index - 1); setInterval(() => go(index + 1), 5000); const burger = document.getElementById('burger'), mobileMenu = document.getElementById('mobileMenu'); function toggleMenu(force) { const open = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('open'); mobileMenu.classList.toggle('open', open); burger.classList.toggle('active', open); burger.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; mobileMenu.querySelectorAll('a').forEach((a, i) => { a.style.transitionDelay = open ? (i * 45 + 40) + 'ms' : '0ms' }) } burger.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); toggleMenu() }); document.addEventListener('click', e => { if (!mobileMenu.contains(e.target) && e.target !== burger && !burger.contains(e.target)) toggleMenu(false) }); mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false))); window.addEventListener('resize', () => { if (window.innerWidth > 980) toggleMenu(false) }); let swipeX = 0, swiping = false, hintShown = false; const isMobile = () => window.innerWidth <= 980; slides.addEventListener('touchstart', e => { swiping = true; swipeX = e.touches[0].clientX; if (isMobile() && !hintShown) { hintShown = true; const hint = document.createElement('div'); hint.textContent = 'Swipe left or right'; hint.style.cssText = 'position:absolute;left:50%;top:16px;transform:translateX(-50%);background:rgba(255,255,255,.12);color:#fff;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);z-index:20;font-size:12px;letter-spacing:.2px;pointer-events:none'; slides.parentElement.appendChild(hint); setTimeout(() => { hint.style.transition = 'opacity .35s ease, transform .35s ease'; hint.style.opacity = '0'; hint.style.transform = 'translateX(-50%) translateY(-8px)'; setTimeout(() => hint.remove(), 400) }, 2000) } }, { passive: true }); slides.addEventListener('touchend', e => { if (!swiping) return; const endX = e.changedTouches[0].clientX; const diff = endX - swipeX; if (Math.abs(diff) > 40) go(index + (diff < 0 ? 1 : -1)); swiping = false }, { passive: true });
+    </script>
+</body>
+
+</html>
