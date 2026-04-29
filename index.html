@@ -755,6 +755,550 @@
     letter-spacing: 2px;
     color: #ccc;
 }
+
+
+/* // second section */
+
+.pohewala-lux {
+    position: relative;
+    overflow: hidden;
+    padding: 44px 0;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(247, 201, 72, .18), transparent 18%),
+      radial-gradient(circle at 78% 12%, rgba(255, 255, 255, .09), transparent 16%),
+      linear-gradient(180deg, #070708 0%, #0d0f12 100%);
+    isolation: isolate
+  }
+
+  .lux-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: .12;
+    mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent)
+  }
+
+  .lux-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(24px);
+    pointer-events: none;
+    opacity: .55;
+    animation: orbMove 8s ease-in-out infinite
+  }
+
+  .lux-orb-a {
+    width: 260px;
+    height: 260px;
+    left: -70px;
+    top: -40px;
+    background: radial-gradient(circle, rgba(247, 201, 72, .26), transparent 70%)
+  }
+
+  .lux-orb-b {
+    width: 180px;
+    height: 180px;
+    right: 10%;
+    top: 12%;
+    background: radial-gradient(circle, rgba(255, 255, 255, .12), transparent 70%);
+    animation-delay: 1.8s
+  }
+
+  .lux-orb-c {
+    width: 220px;
+    height: 220px;
+    right: -60px;
+    bottom: -50px;
+    background: radial-gradient(circle, rgba(247, 201, 72, .16), transparent 70%);
+    animation-delay: 3s
+  }
+
+  .lux-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+    align-items: center;
+    min-height: calc(100vh - 140px);
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 92%)
+  }
+
+  .lux-visual {
+    position: relative;
+    display: grid;
+    place-items: center
+  }
+
+  .glow-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(247, 201, 72, .35);
+    box-shadow: 0 0 30px rgba(247, 201, 72, .18), inset 0 0 24px rgba(247, 201, 72, .1);
+    animation: spin 18s linear infinite
+  }
+
+  .ring-1 {
+    width: 540px;
+    height: 540px
+  }
+
+  .ring-2 {
+    width: 420px;
+    height: 420px;
+    animation-direction: reverse;
+    opacity: .55
+  }
+
+  .ring-3 {
+    width: 300px;
+    height: 300px;
+    opacity: .35
+  }
+
+  .photo-shell {
+    position: relative;
+    width: min(92%, 520px);
+    padding: 18px;
+    border-radius: 34px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .03));
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .05);
+    backdrop-filter: blur(10px);
+    animation: floatUp 6s ease-in-out infinite
+  }
+
+  .photo-shell:before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 36px;
+    padding: 2px;
+    background: linear-gradient(145deg, rgba(247, 201, 72, .85), rgba(255, 255, 255, .08), rgba(247, 201, 72, .18));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: .65
+  }
+
+  .lux-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 24px;
+    filter: saturate(1.05) contrast(1.05);
+    transform: scale(1.01)
+  }
+
+  .mini-card {
+    position: absolute;
+    padding: 11px 14px;
+    border-radius: 999px;
+    background: rgba(7, 7, 8, .5);
+    border: 1px solid rgba(255, 255, 255, .14);
+    color: #fff;
+    font-size: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .25);
+    animation: chipFloat 5s ease-in-out infinite
+  }
+
+  .c1 {
+    left: 18px;
+    top: 16px
+  }
+
+  .c2 {
+    right: 12px;
+    top: 62px;
+    animation-delay: 1s
+  }
+
+  .c3 {
+    left: 18px;
+    bottom: 16px;
+    animation-delay: 2s
+  }
+
+  .lux-copy {
+    color: #fff;
+    max-width: 640px
+  }
+
+  .lux-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    color: #ffd84d;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 900;
+    text-transform: uppercase
+  }
+
+  .lux-kicker:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffd84d;
+    box-shadow: 0 0 0 8px rgba(247, 201, 72, .12), 0 0 24px rgba(247, 201, 72, .28)
+  }
+
+  .lux-copy h2 {
+    margin: 0 0 14px;
+    font-size: clamp(32px, 4.2vw, 60px);
+    line-height: 1.04;
+    max-width: 10ch;
+    text-shadow: 0 0 28px rgba(247, 201, 72, .08)
+  }
+
+  .lux-lead {
+    margin: 0 0 16px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, .82);
+    max-width: 600px
+  }
+
+  .lead-accent {
+    width: 120px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ffd84d, rgba(255, 255, 255, .1));
+    box-shadow: 0 0 18px rgba(247, 201, 72, .35);
+    margin: 0 0 18px
+  }
+
+  .lux-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px
+  }
+
+  .stat-box {
+    padding: 18px 16px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03));
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+    position: relative;
+    overflow: hidden
+  }
+
+  .stat-box b {
+    display: block;
+    color: #ffd84d;
+    font-size: 14px;
+    margin-bottom: 8px
+  }
+
+  .stat-box:before {
+    content: "";
+    position: absolute;
+    inset: auto -20px -20px auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(247, 201, 72, .18), transparent 70%);
+    filter: blur(4px)
+  }
+
+  .stat-box span {
+    display: block;
+    color: rgba(255, 255, 255, .78);
+    font-size: 13px;
+    line-height: 1.45
+  }
+
+  .lux-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px
+  }
+
+  .lux-tags span {
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(247, 201, 72, .12);
+    border: 1px solid rgba(247, 201, 72, .18);
+    color: #fff;
+    font-size: 13px
+  }
+
+  .lux-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffd84d, #f7c948);
+    color: #111;
+    font-weight: 900;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(247, 201, 72, .18), 0 0 14px rgba(247, 201, 72, .08);
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease, background .25s ease
+  }
+
+  .lux-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 14px 28px rgba(247, 201, 72, .24), 0 0 26px rgba(247, 201, 72, .18);
+    filter: brightness(1.05)
+  }
+
+  .lux-btn:before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, .85) 50%, transparent 80%);
+    transform: translateX(-140%);
+    transition: transform .7s ease
+  }
+
+  .lux-btn:hover:before {
+    transform: translateX(140%)
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg)
+    }
+  }
+
+  @keyframes floatUp {
+
+    0%,
+    100% {
+      transform: translateY(0)
+    }
+
+    50% {
+      transform: translateY(-12px)
+    }
+  }
+
+  @keyframes chipFloat {
+
+    0%,
+    100% {
+      transform: translateY(0)
+    }
+
+    50% {
+      transform: translateY(-8px)
+    }
+  }
+
+  @keyframes orbMove {
+
+    0%,
+    100% {
+      transform: translateY(0) scale(1)
+    }
+
+    50% {
+      transform: translateY(-10px) scale(1.05)
+    }
+  }
+
+  @media (max-width: 992px) {
+    .pohewala-lux {
+      padding: 20px 0
+    }
+
+    .lux-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      min-height: auto;
+      align-items: start;
+      width: min(1200px, 94%)
+    }
+
+    .lux-visual,
+    .lux-copy {
+      width: 100%
+    }
+
+    .lux-visual {
+      order: 1;
+      display: flex;
+      justify-content: center
+    }
+
+    .lux-copy {
+      order: 2;
+      max-width: none;
+      text-align: left;
+      padding: 0
+    }
+
+    .lux-kicker {
+      margin-bottom: 10px;
+      letter-spacing: 2px
+    }
+
+    .lux-copy h2 {
+      max-width: 100%;
+      font-size: 30px;
+      line-height: 1.08;
+      margin-bottom: 10px
+    }
+
+    .lux-lead {
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 14px
+    }
+
+    .lux-stats {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .ring-1 {
+      width: 320px;
+      height: 320px
+    }
+
+    .ring-2 {
+      width: 240px;
+      height: 240px
+    }
+
+    .ring-3 {
+      width: 170px;
+      height: 170px
+    }
+
+    .photo-shell {
+      width: min(100%, 520px)
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pohewala-lux {
+      padding: 10px 0
+    }
+
+    .lux-grid {
+      gap: 8px;
+      padding: 0 8px
+    }
+
+    .lux-visual {
+      margin-bottom: 2px
+    }
+
+    .photo-shell {
+      padding: 6px;
+      border-radius: 14px;
+      width: 100%
+    }
+
+    .mini-card {
+      font-size: 9px;
+      padding: 5px 7px;
+      max-width: 48%
+    }
+
+    .c1 {
+      left: 7px;
+      top: 7px
+    }
+
+    .c2 {
+      right: 7px;
+      top: 24px
+    }
+
+    .c3 {
+      left: 7px;
+      bottom: 7px
+    }
+
+    .lux-copy {
+      padding: 0
+    }
+
+    .lux-kicker {
+      font-size: 10px;
+      margin-bottom: 8px;
+      letter-spacing: 1.5px
+    }
+
+    .lux-copy h2 {
+      font-size: 22px;
+      line-height: 1.05;
+      margin-bottom: 8px;
+      max-width: 100%
+    }
+
+    .lux-lead {
+      font-size: 12px;
+      line-height: 1.48;
+      margin-bottom: 10px
+    }
+
+    .lux-stats {
+      gap: 7px;
+      margin-bottom: 10px
+    }
+
+    .stat-box {
+      padding: 10px 11px;
+      border-radius: 12px
+    }
+
+    .stat-box b {
+      font-size: 11px;
+      margin-bottom: 3px
+    }
+
+    .stat-box span {
+      font-size: 10.5px;
+      line-height: 1.35
+    }
+
+    .lead-accent {
+      width: 68px;
+      height: 2px;
+      margin-bottom: 10px
+    }
+
+    .lux-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 11px 14px;
+      font-size: 12px;
+      border-radius: 12px
+    }
+
+    .glow-ring {
+      opacity: .1
+    }
+
+    .ring-1 {
+      width: 240px;
+      height: 240px
+    }
+
+    .ring-2 {
+      width: 175px;
+      height: 175px
+    }
+
+    .ring-3 {
+      width: 130px;
+      height: 130px
+    }
+  }
+
+
     </style>
 </head>
 
@@ -767,7 +1311,7 @@
     </div>
   <div class="logo-text">
     <div class="main-text">
-        <span class="poha-animate">POHA</span>WALA
+        <span class="poha-animate">POHE</span>WALA
     </div>
     <div class="tagline">AUTHENTIC TASTE</div>
 </div>
@@ -880,6 +1424,50 @@
                         aria-label="Next">›</button></div>
             </div>
         </section>
+
+        <section class="pohewala-lux" id="about-us-section">
+  <div class="lux-bg"></div>
+  <div class="lux-orb lux-orb-a"></div>
+  <div class="lux-orb lux-orb-b"></div>
+  <div class="lux-orb lux-orb-c"></div>
+
+  <div class="container lux-grid">
+    <div class="lux-visual">
+      <div class="glow-ring ring-1"></div>
+      <div class="glow-ring ring-2"></div>
+      <div class="glow-ring ring-3"></div>
+      <div class="photo-shell">
+        <img src="food image/abt21-removebg-preview.png" alt="Pohewala food collage" class="lux-img">
+        <div class="mini-card c1">Kulhad Chai</div>
+        <div class="mini-card c2">Peri Peri Fries</div>
+        <div class="mini-card c3">Most Famous Poha</div>
+      </div>
+    </div>
+
+    <div class="lux-copy">
+      <div class="lux-kicker">WELCOME TO POHEWALA</div>
+      <h2>We Serve, You Taste</h2>
+      <p class="lux-lead">Pohewala blends traditional Maharashtrian taste with a modern café experience. From kulhad
+        chai to peri peri fries and our most famous poha, every item is crafted to feel fresh, bold, and satisfying.</p>
+      <div class="lead-accent"></div>
+
+      <div class="lux-stats">
+        <div class="stat-box"><b>Fast Growing</b><span>India’s fastest-growing chai chain</span></div>
+        <div class="stat-box"><b>Quick Service</b><span>Clean, affordable, and food-focused</span></div>
+        <div class="stat-box"><b>Franchise Ready</b><span>Low investment, high ROI, full support</span></div>
+      </div>
+
+      <div class="lux-tags">
+        <span>Most Famous Poha</span><span>Authentic Maharashtrian
+          Taste</span>
+      </div>
+
+      <a href="#menu" class="lux-btn">READ MORE US</a>
+    </div>
+  </div>
+</section>
+
+
     </main>
     <script>
         const slides = document.getElementById('slides'); const total = slides.children.length; let index = 0; const go = n => { index = (n + total) % total; slides.style.transform = `translateX(-${index * 100}%)` }; document.getElementById('next').onclick = () => go(index + 1); document.getElementById('prev').onclick = () => go(index - 1); setInterval(() => go(index + 1), 5000); const burger = document.getElementById('burger'), mobileMenu = document.getElementById('mobileMenu'); function toggleMenu(force) { const open = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('open'); mobileMenu.classList.toggle('open', open); burger.classList.toggle('active', open); burger.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; mobileMenu.querySelectorAll('a').forEach((a, i) => { a.style.transitionDelay = open ? (i * 45 + 40) + 'ms' : '0ms' }) } burger.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); toggleMenu() }); document.addEventListener('click', e => { if (!mobileMenu.contains(e.target) && e.target !== burger && !burger.contains(e.target)) toggleMenu(false) }); mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false))); window.addEventListener('resize', () => { if (window.innerWidth > 980) toggleMenu(false) }); let swipeX = 0, swiping = false, hintShown = false; const isMobile = () => window.innerWidth <= 980; slides.addEventListener('touchstart', e => { swiping = true; swipeX = e.touches[0].clientX; if (isMobile() && !hintShown) { hintShown = true; const hint = document.createElement('div'); hint.textContent = 'Swipe left or right'; hint.style.cssText = 'position:absolute;left:50%;top:16px;transform:translateX(-50%);background:rgba(255,255,255,.12);color:#fff;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);z-index:20;font-size:12px;letter-spacing:.2px;pointer-events:none'; slides.parentElement.appendChild(hint); setTimeout(() => { hint.style.transition = 'opacity .35s ease, transform .35s ease'; hint.style.opacity = '0'; hint.style.transform = 'translateX(-50%) translateY(-8px)'; setTimeout(() => hint.remove(), 400) }, 2000) } }, { passive: true }); slides.addEventListener('touchend', e => { if (!swiping) return; const endX = e.changedTouches[0].clientX; const diff = endX - swipeX; if (Math.abs(diff) > 40) go(index + (diff < 0 ? 1 : -1)); swiping = false }, { passive: true });
