@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --y: #f7c948;
@@ -1412,7 +1413,356 @@
     .pohewala-section-wrapper .img-box { width: 160px; height: 160px; margin-bottom: 15px; }
     .pohewala-section-wrapper .img-box img { width: 100%; height: 100%; object-fit: contain; }
     .pohewala-section-wrapper p { color: #ccc; font-size: 0.85rem; line-height: 1.5; margin: 0; }
+
+
+/* //new count section  */
+
+    .cafe-stats {
+      position: relative;
+      width: 100%;
+      min-height: 600px;
+      padding: 40px 18px;
+      background: url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/47a07f4f60c191a50f33044f8529cb4ef8fe4473.jpg")
+        center center / cover no-repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cafe-stats::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.82), rgba(0,0,0,0.66)),
+        radial-gradient(circle at top, rgba(255, 193, 7, 0.10), transparent 30%);
+      z-index: 0;
+    }
+
+    .cafe-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1300px;
+      text-align: center;
+    }
+
+    .cafe-subtitle {
+      color: #ffd86b;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+
+    .cafe-title {
+      color: #fff;
+      font-size: clamp(1.4rem, 2.3vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 34px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    }
+
+    .cafe-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .cafe-card {
+      position: relative;
+      padding: 22px 16px;
+      min-height: 235px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .cafe-card:focus-within {
+      outline: 3px solid rgba(255, 216, 107, 0.95);
+      outline-offset: 4px;
+    }
+
+    .cafe-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255, 216, 107, 0.42);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+    }
+
+    .cafe-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .card-1::after {
+      background: linear-gradient(135deg, rgba(255, 99, 132, 0.18), transparent 60%);
+    }
+
+    .card-2::after {
+      background: linear-gradient(135deg, rgba(255, 193, 7, 0.18), transparent 60%);
+    }
+
+    .card-3::after {
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.18), transparent 60%);
+    }
+
+    .card-4::after {
+      background: linear-gradient(135deg, rgba(156, 39, 176, 0.18), transparent 60%);
+    }
+
+    .shine {
+      position: absolute;
+      inset: 0;
+      width: 200%;
+      height: 200%;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-100%, -100%) rotate(45deg);
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.10) 38%,
+        rgba(255, 255, 255, 0.42) 50%,
+        rgba(255, 255, 255, 0.10) 62%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .cafe-card:hover .shine {
+      opacity: 1;
+      animation: shineMove 1.7s ease-in-out infinite;
+    }
+
+    @keyframes shineMove {
+      from {
+        transform: translate(-100%, -100%) rotate(45deg);
+      }
+      to {
+        transform: translate(200%, 200%) rotate(45deg);
+      }
+    }
+
+    .cafe-icon {
+      width: 78px;
+      height: 78px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .icon-1 { background: linear-gradient(135deg, #ff6b81, #ff9f43); }
+    .icon-2 { background: linear-gradient(135deg, #ffd86b, #ff9f1a); }
+    .icon-3 { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+    .icon-4 { background: linear-gradient(135deg, #a855f7, #ec4899); }
+
+    .cafe-icon img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      display: block;
+      filter: brightness(1.05);
+    }
+
+    .cafe-count {
+      color: #fff;
+      font-size: clamp(1.7rem, 3vw, 3rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+      position: relative;
+      z-index: 2;
+    }
+
+    .cafe-card p {
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 0.95rem;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 1024px) {
+      .cafe-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cafe-stats {
+        min-height: 600px;
+        padding: 22px 12px;
+      }
+
+      .cafe-subtitle {
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+      }
+
+      .cafe-title {
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+        line-height: 1.3;
+      }
+
+      .cafe-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .cafe-card {
+        min-height: 145px;
+        padding: 12px 8px;
+        border-radius: 14px;
+      }
+
+      .cafe-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 8px;
+      }
+
+      .cafe-icon img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .cafe-count {
+        font-size: 1.18rem;
+        margin-bottom: 5px;
+      }
+
+      .cafe-card p {
+        font-size: 0.68rem;
+        text-align: center;
+        line-height: 1.2;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cafe-grid {
+        gap: 8px;
+      }
+
+      .cafe-card {
+        min-height: 135px;
+        padding: 10px 6px;
+      }
+
+      .cafe-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .cafe-icon img {
+        width: 28px;
+        height: 28px;
+      }
+
+      .cafe-count {
+        font-size: 1.05rem;
+      }
+
+      .cafe-card p {
+        font-size: 0.62rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cafe-card,
+      .cafe-card:hover,
+      .cafe-card:hover .shine {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      .shine {
+        display: none;
+      }
+    }
+
+
+/* // our product section style  */
+/* Renamed classes with 'pro_' prefix */
+        .pro_section_wrapper { 
+            background-color: #0a0a0a; 
+            color: #fff; 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            padding: 50px 20px; 
+            text-align: center; 
+        }
+
+        .pro_main_title { font-size: 2.2rem; color: #ffcc00; margin: 0; text-transform: uppercase; animation: pro_slide_anim 1s ease; }
+        .pro_sub_text { font-size: 1rem; color: #ccc; margin-bottom: 10px; animation: pro_slide_anim 1.2s ease; }
+
+        .pro_animated_border { width: 80px; height: 3px; background: #ffcc00; margin: 0 auto 30px auto; border-radius: 2px; animation: pro_grow_anim 1.5s ease-out; }
+
+        @keyframes pro_slide_anim { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pro_grow_anim { from { width: 0; } to { width: 80px; } }
+
+        .pro_grid_container { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            grid-auto-rows: 200px; 
+            gap: 12px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+
+        .pro_product_card { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; }
+        .pro_product_card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
+
+        .pro_product_card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .pro_product_card:nth-child(3) { grid-row: span 2; }
+        .pro_product_card:nth-child(6) { grid-column: span 2; }
+
+        .pro_hover_overlay {
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.4s; font-size: 1.1rem; font-weight: 600;
+        }
+
+        .pro_nav_arrow { position: absolute; bottom: 10px; right: 10px; font-size: 14px; color: #fff; transition: 0.3s; }
+
+        .pro_product_card:hover .pro_hover_overlay { opacity: 1; }
+        .pro_product_card:hover img { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .pro_grid_container { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+            .pro_product_card { grid-column: span 1 !important; grid-row: span 1 !important; }
+        }
+
+
+
+
     </style>
+
 </head>
 
 <body>
@@ -1701,6 +2051,174 @@
 </script>
 <!-- Pohewala Modern Section End -->
 
+
+
+<!-- // add new section for count  -->
+ 
+  <section class="cafe-stats" aria-labelledby="stats-title">
+    <div class="cafe-wrap">
+      <p class="cafe-subtitle">YOUR SUPPORT & LOVE DRIVE OUR SUCCESS</p>
+      <h2 class="cafe-title" id="stats-title">Aesthetic Taste, Served Daily With Love</h2>
+
+      <div class="cafe-grid" role="list" aria-label="Cafe statistics">
+        <article class="cafe-card card-1" role="listitem">
+          <span class="shine" aria-hidden="true"></span>
+          <div class="cafe-icon icon-1">
+            <img src="food image/city.png" alt="Cities served" />
+          </div>
+          <div class="cafe-count" data-target="15" aria-label="15 plus cities">0+</div>
+          <p>Cities</p>
+        </article>
+
+        <article class="cafe-card card-2" role="listitem">
+          <span class="shine" aria-hidden="true"></span>
+          <div class="cafe-icon icon-2">
+            <img src="food image/cardpoha.png" alt="Poha served daily" />
+          </div>
+          <div class="cafe-count" data-target="100000" aria-label="100,000 plus cups served daily">0+</div>
+          <p>Poha Served Daily</p>
+        </article>
+
+        <article class="cafe-card card-3" role="listitem">
+          <span class="shine" aria-hidden="true"></span>
+          <div class="cafe-icon icon-3">
+            <img src="food image/shakes.png" alt="Signature items" />
+          </div>
+          <div class="cafe-count" data-target="30" aria-label="30 plus signature items">0+</div>
+          <p>Signature Items</p>
+        </article>
+
+        <article class="cafe-card card-4" role="listitem">
+          <span class="shine" aria-hidden="true"></span>
+          <div class="cafe-icon icon-4">
+            <img src="food image/storepng.webp" alt="Stores pan India" />
+          </div>
+          <div class="cafe-count" data-target="50" aria-label="50 plus stores pan India">0+</div>
+          <p>Stores Pan India</p>
+        </article>
+      </div>
+    </div>
+  </section>
+<script>
+  const section = document.querySelector(".cafe-stats");
+  const counters = document.querySelectorAll(".cafe-count");
+  const duration = 1500;
+  const restartDelay = 5000;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let restartTimer = null;
+  let hasStarted = false;
+
+  function formatNumber(num) {
+    return num.toLocaleString();
+  }
+
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target, 10);
+
+    if (reduceMotion) {
+      el.textContent = formatNumber(target) + "+";
+      return;
+    }
+
+    const startTime = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(target * eased);
+      el.textContent = formatNumber(value) + "+";
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = formatNumber(target) + "+";
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  function resetCounters() {
+    counters.forEach(counter => {
+      counter.textContent = "0+";
+    });
+  }
+
+  function runCounters() {
+    resetCounters();
+    setTimeout(() => {
+      counters.forEach(animateCount);
+    }, 50);
+  }
+
+  function startLoop() {
+    if (reduceMotion) {
+      counters.forEach(animateCount);
+      return;
+    }
+
+    if (restartTimer) {
+      clearInterval(restartTimer);
+      restartTimer = null;
+    }
+
+    runCounters();
+
+    restartTimer = setInterval(() => {
+      runCounters();
+    }, restartDelay);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasStarted) {
+        hasStarted = true;
+        startLoop();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(section);
+</script>
+
+
+
+<!-- //new section for our products  -->
+ 
+<section class="pro_section_wrapper">
+    <h2 class="pro_main_title">OUR SPECIALTIES</h2>
+    <p class="pro_sub_text">Best food for you and family</p>
+    <div class="pro_animated_border"></div>
+
+    <div class="pro_grid_container">
+        <div class="pro_product_card"><img src="food image/pro_poha.png" alt="Special Poha
+Pohewala"><div class="pro_hover_overlay">Special Poha
+Pohewala <span class="pro_nav_arrow">➔</span></div></div>
+        <div class="pro_product_card"><img src="food image/pro_shakes.png" alt="
+Shakes
+Pohewala"><div class="pro_hover_overlay">
+Shakes
+Pohewala <span class="pro_nav_arrow">➔</span></div></div>
+<div class="pro_product_card"><img src="food image/pro_springroll.png" alt="Spring Rolls
+Pohewala"><div class="pro_hover_overlay">Spring Rolls
+Pohewala<span class="pro_nav_arrow">➔</span></div></div>
+        <div class="pro_product_card"><img src="food image/pro_Pohewala.png" alt="Vadapav"><div class="pro_hover_overlay">Vadapav<span class="pro_nav_arrow">➔</span></div></div>
+        
+        <div class="pro_product_card"><img src="food image/dahi poha.png" alt="Dahi Poha
+Pohewala"><div class="pro_hover_overlay">Dahi Poha
+Pohewala <span class="pro_nav_arrow">➔</span></div></div>
+        <div class="pro_product_card"><img src="food image/pro_kandapoha.png" alt="Kanda Poha & Tea
+Popular Food Package"><div class="pro_hover_overlay">Kanda Poha & Tea
+Popular Food Package <span class="pro_nav_arrow">➔</span></div></div>
+       
+        <div class="pro_product_card"><img src="food image/pro_misal.png" alt="
+Misal Pav
+Pohewala"><div class="pro_hover_overlay">
+Misal Pav
+Pohewala <span class="pro_nav_arrow">➔</span></div></div>
+    </div>
+</section>
 
 
 
