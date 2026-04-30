@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POHEWALA</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
@@ -1759,12 +1760,599 @@
         }
 
 
+/* //our story section */
+       .our-section {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 40px;
+        justify-content: center;
+    }
 
+    /* Complex organic frame shape */
+    .our-media-container {
+        width: 300px;
+        height: 650px;
+        /* Unique organic frame shape */
+        border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;
+        overflow: hidden;
+        border: 4px solid #d4af37;
+        transition: all 0.5s ease;
+        flex-shrink: 0;
+        position: relative;
+    }
+    
+    .our-media-container:hover {
+        /* Change shape on hover for an animated effect */
+        border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+        transform: rotate(2deg);
+    }
+
+    .our-media-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .our-text-content {
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+    }
+
+    @keyframes our-fadeInSlide {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .our-text-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #d4af37;
+        animation: our-fadeInSlide 1.5s ease-out forwards;
+    }
+    
+    .our-text-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        line-height: 1.3;
+    }
+    .our-text-content p {
+        line-height: 1.6;
+        color: #ccc;
+        font-size: 1rem;
+    }
+
+
+    /* //partner */
+
+        :root {
+            --part-brand-yellow1: #ffcc00;
+            --part-dark1: #1a1a1a;
+            --part-white: #ffffff;
+            --part-font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Section Container */
+        .part-section-wrapper {
+            height: 350px;
+            width: 100%;
+            background-color: var(--part-brand-yellow1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--part-font);
+        }
+
+        /* Moving Watermark Background */
+        .part-bg-text {
+            position: absolute;
+            font-size: clamp(100px, 15vw, 200px);
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.04);
+            white-space: nowrap;
+            letter-spacing: -5px;
+            z-index: 1;
+            pointer-events: none;
+            animation: part-slide 20s linear infinite;
+        }
+
+        /* Content Layer */
+        .part-content-box {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+
+        .part-main-heading {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 850;
+            color: var(--part-dark1);
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: part-reveal 0.8s ease forwards;
+        }
+
+        .part-sub-text {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: part-reveal 0.8s ease forwards 0.2s;
+        }
+
+        /* Interactive Button */
+        .part-cta-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--part-dark1);
+            color: var(--part-white);
+            padding: 16px 36px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: part-reveal 0.8s ease forwards 0.4s;
+        }
+
+        .part-cta-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-color: #000;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .part-arrow {
+            margin-left: 12px;
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .part-cta-button:hover .part-arrow {
+            transform: translateX(8px);
+        }
+
+        /* Animations */
+        @keyframes part-reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes part-slide {
+            0% { transform: translateX(20%); }
+            100% { transform: translateX(-20%); }
+        }
+
+        /* Subtle glass effect for the button container on hover */
+        .part-section-wrapper:hover .part-bg-text {
+            color: rgba(0, 0, 0, 0.07);
+            transition: color 0.5s ease;
+        }
+
+
+
+        /* //footer section here 
+         */
+         
+
+    /* Professional Layout & Styling */
+    .adv-footer {
+        background: #000; /* Deep black to match image_19fa06.png */
+        color: #ffffff;
+        font-family: 'Inter', sans-serif;
+        padding: 60px 0 20px 0;
+        position: relative;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Glassmorphic Grid */
+    .footer-main-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1.2fr 1.5fr;
+        gap: 40px;
+    }
+
+    .footer-title {
+        color: #ffcc00; /* Gold accent from image_19fa06.png */
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        color: #ffcc00;
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .footer-desc {
+        color: #b0b0b0;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+
+    /* List Styling */
+    .footer-list { list-style: none; padding: 0; }
+    .footer-list li { margin-bottom: 10px; }
+    .footer-list li a {
+        color: #b0b0b0;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+    .footer-list li a:hover { color: #ffcc00; padding-left: 5px; }
+
+    /* Contact & Address */
+    .contact-row, .address-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 15px;
+        color: #b0b0b0;
+        font-size: 14px;
+    }
+    .icon-gold { color: #ffcc00; margin-top: 4px; }
+
+    /* Social Media Pro-Buttons */
+    .social-wrapper { display: flex; gap: 15px; margin-top: 25px; }
+    .social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-decoration: none;
+    }
+    .social-btn:hover {
+        background: #ffcc00;
+        color: #000;
+        transform: translateY(-5px) rotate(360deg);
+    }
+
+    /* Footer Bottom Section */
+    .footer-hr { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 50px; }
+    .bottom-wrap {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        color: #666;
+        font-size: 13px;
+    }
+    .legal-links a { color: #666; text-decoration: none; margin-left: 20px; }
+    .legal-links a:hover { color: #ffcc00; }
+
+    /* --- Pro Mobile Responsiveness --- */
+    @media (max-width: 992px) {
+        .footer-main-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .footer-main-grid {
+            grid-template-columns: 1fr;
+            text-align: center; /* Centered alignment for clean mobile view */
+        }
+        .contact-row, .address-item {
+            justify-content: center;
+        }
+        .social-wrapper {
+            justify-content: center;
+        }
+        .bottom-wrap {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+        .legal-links a { margin: 0 10px; }
+    }
+
+
+    /* ring css */
+    
+/* ===== MAIN CONTAINER ===== */
+.social-ring {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    z-index: 999;
+}
+
+/* ===== RING ===== */
+.ring {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    position: relative;
+    animation: rotateRing 8s linear infinite;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2),
+                inset 0 0 10px rgba(255,255,255,0.1);
+}
+
+@keyframes rotateRing {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== ICONS ===== */
+.node {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* keep icons straight */
+.node i {
+    animation: counterRotate 8s linear infinite;
+}
+
+@keyframes counterRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* positions */
+.node1 { top: -15px; left: 50%; transform: translateX(-50%); }
+.node2 { bottom: -15px; left: 10%; }
+.node3 { bottom: -15px; right: 10%; }
+
+/* colors */
+.whatsapp { color: #25D366; }
+.instagram { color: #E4405F; }
+.facebook { color: #1877F2; }
+
+/* ===== CENTER CLOSE BUTTON ===== */
+.center-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff4d4d, #ff0000);
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255,0,0,0.7);
+    z-index: 10;
+}
+
+/* hover */
+.center-close:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ===== TOOLTIP ===== */
+.tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 6px;
+
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 20;
+}
+
+/* Tooltip arrow */
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.9) transparent transparent transparent;
+}
+
+/* Show tooltip */
+.center-close:hover .tooltip,
+.center-close:active .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* ===== HIDE ===== */
+.hide-ring {
+    display: none;
+}
+
+/* ===== HOVER GLOW ===== */
+.social-ring:hover .ring {
+    box-shadow: 0 0 25px rgba(255,255,255,0.4),
+                inset 0 0 15px rgba(255,255,255,0.2);
+}
+
+/* ===== 📱 MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .social-ring {
+        width: 65px;
+        height: 65px;
+        bottom: 70px;
+        right: 15px;
+    }
+
+    .node {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+
+    .node1 { top: -13px; }
+    .node2 { bottom: -13px; }
+    .node3 { bottom: -13px; }
+
+    .center-close {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .tooltip {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+}
+
+/* EXTRA SMALL */
+@media (max-width: 480px) {
+    .social-ring {
+        bottom: 60px;
+        right: 10px;
+    }
+}
+    
+
+/* //loader css */
+/* ===== LOADER ONLY ===== */
+#pohewala-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Splash Container */
+#pohewala-loader .splash-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo */
+#pohewala-loader .logo-wrapper {
+    width: 220px;
+    animation: fadeInScale 1.2s ease-out forwards, float 3s ease-in-out infinite;
+}
+
+#pohewala-loader .logo-img {
+    width: 100%;
+}
+
+/* Glow */
+#pohewala-loader .glow-effect {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(252,227,77,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* Ring */
+#pohewala-loader .loader-ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border-top: 2px solid #fce34d;
+    border-right: 2px solid rgba(252,227,77,0.2);
+    animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%,100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
 
     </style>
 
-</head>
 
+
+</head>
+<!-- LOADER -->
+<div id="pohewala-loader">
+    <div class="splash-container">
+        <div class="glow-effect"></div>
+        <div class="loader-ring"></div>
+
+        <div class="logo-wrapper">
+            <img src="Pohewala-Logo.png" alt="Pohewala Logo" class="logo-img">
+        </div>
+    </div>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="main-content" style="display: none;">
+    <!-- YOUR FULL WEBSITE CODE HERE -->
+</div>
 <body>
     <header class="nav">
         <div class="container nav-inner">
@@ -1779,14 +2367,14 @@
     <div class="tagline">AUTHENTIC TASTE</div>
 </div>
 </a>
-            <nav class="menu"><a href="#home">Home</a><a href="#about">About Us</a><a href="#menu">Our Menu</a><a
-                    href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#contact">Contact Us</a></nav>
+            <nav class="menu"><a href="#home">Home</a><a href="#about-us-section">About Us</a><a href="#ourfood">Our Menu</a><a
+                    href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#footer123">Contact Us</a></nav>
             <a class="cta" href="#partner">Become a Partner</a>
             <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
         </div>
         <div class="container mobile-menu" id="mobileMenu">
             <a href="#home">Home</a><a href="#about">About Us</a><a href="#menu">Our Menu</a><a
-                href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#contact">Contact Us</a><a class="cta"
+                href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#footer123">Contact Us</a><a class="cta"
                 href="#partner">Become a Partner</a>
         </div>
     </header>
@@ -2186,7 +2774,7 @@
 
 <!-- //new section for our products  -->
  
-<section class="pro_section_wrapper">
+<section id="ourfood" class="pro_section_wrapper">
     <h2 class="pro_main_title">OUR SPECIALTIES</h2>
     <p class="pro_sub_text">Best food for you and family</p>
     <div class="pro_animated_border"></div>
@@ -2216,11 +2804,186 @@ Popular Food Package <span class="pro_nav_arrow">➔</span></div></div>
 Misal Pav
 Pohewala"><div class="pro_hover_overlay">
 Misal Pav
-Pohewala <span class="pro_nav_arrow">➔</span></div></div>
+Pohewala <span class="pro_nav_arrow">➔</span></div>
+</div>
+<div class="pro_product_card"><img src="food image/pro_springroll.png" alt="Spring Rolls
+Pohewala"><div class="pro_hover_overlay">Spring Rolls
+Pohewala<span class="pro_nav_arrow">➔</span></div></div>
     </div>
+    
 </section>
 
 
+<!-- //our story section -->
+ 
+    <section class="our-section" id="our-story-section">
+        <div class="our-media-container">
+            <video id="our-video" loop muted playsinline>
+                <source src="food image/Traffic-Opening-Video-1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="our-text-content">
+            <h2>OUR STORY</h2>
+            <h3>8+ Years Of Experience We Provide Food Services</h3>
+            <p>With over 8+ years of experience in serving delicious and authentic food, Pohewala has grown from a simple idea into a trusted name for quality meals. What started as a passion for bringing the true taste of poha to people has now become a commitment to serve fresh, hygienic, and flavorful food every day. Pohewala was founded by Mr.Chahul and Mr.Pawan, two passionate food lovers with a vision to make traditional flavors easily accessible to everyone. Their journey began with a shared belief that simple food, when made with the right ingredients and care, can create unforgettable experiences. We believe food is not just about taste—it’s about comfort, tradition, and connection. That’s why every dish at Pohewala is prepared with carefully selected ingredients, traditional recipes, and a touch of love. Over the years, we have proudly served thousands of happy customers, constantly improving our menu and service to meet their expectations. Whether it’s a quick breakfast, a fulfilling meal, or bulk orders for events, we are here to deliver quality you can trust. At Pohewala, our journey continues with one simple goal—to serve happiness in every bite.</p>
+        </div>
+    </section>
+
+    <script>
+        const video = document.getElementById('our-video');
+        const observer1 = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer1.observe(document.getElementById('our-story-section'));
+    </script>
+
+
+
+<!-- //partner -->
+   <section id="partner" class="part-section-wrapper">
+        <!-- Floating Brand Background -->
+        <div class="part-bg-text">PARTNERING • FRANCHISE • GROWTH</div>
+
+        <div class="part-content-box">
+            <h2 class="part-main-heading">Inviting Franchise Partners</h2>
+            <p class="part-sub-text">Pocket Friendly Food Business Franchise Opportunity</p>
+            
+            <a href="#" class="part-cta-button">
+                Become a Partner
+                <span class="part-arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- //footer section will be added here -->
+     
+    <!-- Footer Section -->
+<footer id="footer123" class="adv-footer">
+    <div class="footer-overlay">
+        <div class="footer-container">
+            <!-- Grid Layout -->
+            <div class="footer-main-grid">
+                
+                <!-- Brand/About Section -->
+                <div class="footer-box brand-info">
+                    <h2 class="footer-title">Pohewala</h2>
+                    <p class="footer-desc">
+                        Pohewala delivers the heart of Maharashtra with every bite! Enjoy our freshly made Poha, rich in flavor and tradition.
+                    </p>
+                    <div class="social-wrapper">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Section -->
+                <div class="footer-box">
+                    <h3 class="section-title">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Menu</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-box">
+                    <h3 class="section-title">Contact</h3>
+                    <div class="contact-row">
+                        <i class="fas fa-envelope icon-gold"></i>
+                        <span>Pohewalacare@gmail.com</span>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-phone icon-gold"></i>
+                        <span>+91 9923000480</span>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-phone icon-gold"></i>
+                        <span>+91 8888843354</span>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-phone icon-gold"></i>
+                        <span>+91 9552714131</span>
+                    </div>
+                </div>
+
+                <!-- Address Section -->
+                <div class="footer-box">
+                    <h3 class="section-title">Our Offices</h3>
+                    <div class="address-item">
+                        <p><strong>Head Office:</strong> 4th Floor, Guruprasad Apartment, Taj Nagar, Nagpur-440027</p>
+                    </div>
+                    <div class="address-item">
+                        <p><strong>Regional Office:</strong> H.No 317, 7th Main Rd, Sector 6, HSR Layout, Bengaluru-560102</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <hr class="footer-hr">
+                <div class="bottom-wrap">
+                    <p>&copy; Pohewala 2026 — Tradition in Every Bite, Created by Shiv</p>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- //ring code -->
+
+
+<div class="social-ring" id="socialRing">
+    <div class="ring">
+
+        <!-- Icons -->
+        <a href="#" class="node node1 whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="node node2 instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="node node3 facebook"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Center Close -->
+        <div class="center-close" onclick="closeRing()">
+            ×
+            <span class="tooltip">Close</span>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function closeRing() {
+    document.getElementById("socialRing").classList.add("hide-ring");
+}
+</script>
+
+<!-- //loader script  -->
+ <script>
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById("pohewala-loader").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+    }, 2000); // 2 seconds loader
+});
+</script>
 
 
 </body>
