@@ -1299,6 +1299,119 @@
   }
 
 
+   /* third section  */
+      
+        #pohewala-ultimate-design { font-family: 'Segoe UI', Roboto, sans-serif; background: #050505; padding: 60px 5%; margin: auto; color: #fff; min-height: 400px; }
+        .header-container { text-align: center; margin-bottom: 50px; }
+        .header-container h1 { color: #FFD700; font-size: clamp(2rem, 6vw, 3.5rem); text-transform: uppercase; margin: 0; line-height: 1.2; }
+        .header-container p { color: #888; font-size: clamp(1rem, 2vw, 1.4rem); margin-top: 15px; }
+
+        .tabs-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .filter-btn { background: transparent; border: 2px solid #FFD700; color: #FFD700; padding: 12px 30px; border-radius: 50px; cursor: pointer; transition: 0.4s; font-size: 1rem; text-transform: uppercase; font-weight: 600; }
+        .filter-btn.active { background: #FFD700; color: #000; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+
+        .grid-display { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: auto; }
+        .data-card { background: #111; padding: 30px; border-radius: 20px; border: 1px solid #222; text-align: center; transition: 0.4s; }
+        .data-card:hover { border-color: #FFD700; transform: translateY(-10px); background: #161616; }
+        .data-card h3 { margin: 0 0 10px 0; color: #fff; font-size: 1.5rem; }
+        .data-card p { margin: 0; color: #FFD700; font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; }
+           .header-container h2 {
+            color: #f8f8f5;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            text-transform: uppercase;
+            margin: 0;
+            
+        }
+
+        .brand {
+    color: #fff;
+    animation: colorShift 1.5s infinite alternate;
+    font-weight: 600;
+}
+
+/* Smooth white ↔ yellow animation */
+@keyframes colorShift {
+    0% {
+        color: #ffffff;
+        text-shadow: 0 0 5px rgba(255,255,255,0.3);
+    }
+    100% {
+        color: #FFD700;
+        text-shadow: 0 0 10px rgba(255,215,0,0.8);
+    }
+}
+
+/* //fourth section added here */
+
+.full-image-section {
+    width: 100%;
+    height: 500px; /* your fixed height */
+    
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+
+    background: #000; /* optional */
+    margin-top: 45px;
+}
+
+.full-image-section img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* no crop */
+    
+}
+
+/* Mobile View Fix */
+@media (max-width: 768px) {
+    .full-image-section img {
+        height: auto; /* show full image */
+        object-fit: contain; /* no cropping */
+        margin-top: -160px;
+    }
+}
+
+    .pohewala-section-wrapper { 
+        position: relative; 
+        min-height: 600px; 
+        padding: 40px 20px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        background: #111; 
+        overflow: hidden; 
+        margin-top: 40px;
+    }
+    .pohewala-section-wrapper .canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    .pohewala-section-wrapper .bento-grid { 
+        position: relative; 
+        z-index: 2; 
+        display: grid; 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 20px; 
+        max-width: 1200px; 
+        width: 100%; 
+    }
+
+    @media (max-width: 768px) {
+        /* Changed to 1 card per row to ensure larger, readable size */
+        .pohewala-section-wrapper{margin-top: -120px;}
+        .pohewala-section-wrapper .bento-grid { grid-template-columns: 1fr; gap: 15px; }
+        .pohewala-section-wrapper .card { padding: 25px !important; }
+        .pohewala-section-wrapper .card h2 { font-size: 1.2rem !important; }
+        .pohewala-section-wrapper .card p { font-size: 0.9rem !important; }
+        .pohewala-section-wrapper .img-box { width: 140px !important; height: 140px !important; margin-bottom: 15px !important; }
+    }
+
+    .pohewala-section-wrapper .card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s ease; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .pohewala-section-wrapper .card:hover { transform: translateY(-10px); background: rgba(255, 204, 0, 0.1); border-color: #ffcc00; }
+
+    @keyframes colorChange { 0%, 100% { color: #fff; } 50% { color: #ffcc00; } }
+    .pohewala-section-wrapper h2 { margin: 10px 0; font-size: 1.1rem; animation: colorChange 3s infinite; }
+
+    .pohewala-section-wrapper .img-box { width: 160px; height: 160px; margin-bottom: 15px; }
+    .pohewala-section-wrapper .img-box img { width: 100%; height: 100%; object-fit: contain; }
+    .pohewala-section-wrapper p { color: #ccc; font-size: 0.85rem; line-height: 1.5; margin: 0; }
     </style>
 </head>
 
@@ -1471,7 +1584,127 @@
     </main>
     <script>
         const slides = document.getElementById('slides'); const total = slides.children.length; let index = 0; const go = n => { index = (n + total) % total; slides.style.transform = `translateX(-${index * 100}%)` }; document.getElementById('next').onclick = () => go(index + 1); document.getElementById('prev').onclick = () => go(index - 1); setInterval(() => go(index + 1), 5000); const burger = document.getElementById('burger'), mobileMenu = document.getElementById('mobileMenu'); function toggleMenu(force) { const open = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('open'); mobileMenu.classList.toggle('open', open); burger.classList.toggle('active', open); burger.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; mobileMenu.querySelectorAll('a').forEach((a, i) => { a.style.transitionDelay = open ? (i * 45 + 40) + 'ms' : '0ms' }) } burger.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); toggleMenu() }); document.addEventListener('click', e => { if (!mobileMenu.contains(e.target) && e.target !== burger && !burger.contains(e.target)) toggleMenu(false) }); mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false))); window.addEventListener('resize', () => { if (window.innerWidth > 980) toggleMenu(false) }); let swipeX = 0, swiping = false, hintShown = false; const isMobile = () => window.innerWidth <= 980; slides.addEventListener('touchstart', e => { swiping = true; swipeX = e.touches[0].clientX; if (isMobile() && !hintShown) { hintShown = true; const hint = document.createElement('div'); hint.textContent = 'Swipe left or right'; hint.style.cssText = 'position:absolute;left:50%;top:16px;transform:translateX(-50%);background:rgba(255,255,255,.12);color:#fff;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);z-index:20;font-size:12px;letter-spacing:.2px;pointer-events:none'; slides.parentElement.appendChild(hint); setTimeout(() => { hint.style.transition = 'opacity .35s ease, transform .35s ease'; hint.style.opacity = '0'; hint.style.transform = 'translateX(-50%) translateY(-8px)'; setTimeout(() => hint.remove(), 400) }, 2000) } }, { passive: true }); slides.addEventListener('touchend', e => { if (!swiping) return; const endX = e.changedTouches[0].clientX; const diff = endX - swipeX; if (Math.abs(diff) > 40) go(index + (diff < 0 ? 1 : -1)); swiping = false }, { passive: true });
+     
     </script>
+
+
+<!-- POHEWALA FINDER SECTION -->
+<div id="pohewala-ultimate-design">
+   <div class="header-container">
+    <h2>Find <span class="brand">Pohewala</span>, Wherever You Are</h2>
+    <p>Connecting Cities with Great Food</p>
+</div>
+
+    <div class="tabs-container">
+        <button class="filter-btn active" onclick="render('Maharashtra', this)">Maharashtra</button>
+        <button class="filter-btn" onclick="render('Chhattisgarh', this)">Chhattisgarh</button>
+        <button class="filter-btn" onclick="render('Karnataka', this)">Karnataka</button>
+    </div>
+
+    <div class="grid-display" id="data-grid">
+
+        <script>
+        const storeData = {
+            "Maharashtra": {"Nagpur": 18, "Pune": 1, "New Mumbai": 1, "Chandrapur": 1, "Buttibori": 1},
+            "Chhattisgarh": {"Raipur": 2, "Bhilai": 1},
+            "Karnataka": {"Bangalore": 1}
+        };
+
+        window.render = function(state, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const grid = document.getElementById('data-grid');
+            grid.innerHTML = Object.entries(storeData[state]).map(([city, count]) => `
+                <div class="data-card">
+                    <h3>${city}</h3>
+                    <p>${count} ${count > 1 ? 'Outlets' : 'Outlet'}</p>
+                </div>
+            `).join('');
+        };
+        // Initial call
+        document.querySelector('.filter-btn').click();
+    </script>
+    </div>
+
+
+    <!-- // forth section will be added here -->
+
+    <section class="full-image-section">
+    <img src="food image/sectionimg.png" alt="Pohewala Banner">
+</section>
+
+
+
+
+<!-- Pohewala Modern Section Start -->
+
+<!-- Pohewala Modern Section Start -->
+<div class="pohewala-section-wrapper" id="pohewala-section">
+    <div class="canvas-container" id="canvas-container"></div>
+    <div class="bento-grid">
+        <div class="card">
+            <div class="img-box"><img src="food image/cardpoha.png" alt="Poha"></div>
+            <h2>Authentic Poha</h2>
+            <p>Experience the true taste of tradition with our poha. Light yet flavorful start to your day.</p>
+        </div>
+        <div class="card">
+            <div class="img-box"><img src="food image/cardtravel (3).png" alt="Delivery"></div>
+            <h2>Home Delivery</h2>
+            <p>Pohewala's ensures quick, hygienic delivery via Swiggy, Zomato, and other platforms.</p>
+        </div>
+        <div class="card">
+            <div class="img-box"><img src="food image/cardmoney.png" alt="Cost"></div>
+            <h2>Low Cost</h2>
+            <p>The concept was always to provide nutritious, wholesome food at reasonable costs.</p>
+        </div>
+        <div class="card">
+            <div class="img-box"><img src="food image/cardtravel (1).png" alt="Bulk"></div>
+            <h2>Bulk Food Order</h2>
+            <p>Fresh, hygienic, and affordable bulk meals for events, offices, and parties.</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    (function() {
+        const wrapper = document.querySelector('.pohewala-section-wrapper');
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, wrapper.clientWidth/wrapper.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+        renderer.setSize(wrapper.clientWidth, wrapper.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.IcosahedronGeometry(12, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0xffcc00, wireframe: true, transparent: true, opacity: 0.2 });
+        const shape = new THREE.Mesh(geometry, material);
+        scene.add(shape);
+
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            shape.rotation.x += 0.005;
+            shape.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(wrapper.clientWidth, wrapper.clientHeight);
+            camera.aspect = wrapper.clientWidth / wrapper.clientHeight;
+            camera.updateProjectionMatrix();
+        });
+    })();
+</script>
+<!-- Pohewala Modern Section End -->
+
+
+
+
+
 </body>
 
 </html>
